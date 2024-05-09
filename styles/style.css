@@ -1,5 +1,513 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  font-family: var(--main-font, sans-serif);
+  color: var(--text-color);
+  background-image: url(../images/cover-image-dark.png);
+  background-color: var(--bg-color);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.header {
+  margin: 2.7%;
+  grid-template-rows: 1fr min-content 1fr;
+}
+
+.decorated-zone {
+  display: grid;
+  position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+.decorated-zone::before {
+  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--accent-color);
+  right: 0;
+}
+
+.decorated-zone::after {
+  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--accent-color);
+  bottom: 0;
+}
+
+.header__decor-dark-theme {
+  justify-self: end;
+  position: absolute;
+  margin-inline-end: 29px;
+  font-size: 18px;
+  color: var(--accent-color);
+}
+
+.header__decor-dark-theme::after {
+  position: absolute;
+  content: "";
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
+  margin-block-start: 7px;
+  inset-inline-end: -20px;
+}
+
+.header__theme-menu {
+  padding-block: 17vi;
+  justify-self: flex-end;
+  align-self: start;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  list-style: none;
+  color: var(--accent-color);
+  background-color: transparent;
+  text-transform: lowercase;
+}
+
+.header__theme-menu-item {
+  font-size: 18px;
+}
+
+.header__theme-menu-button {
+  padding-inline: 13px;
+  color: inherit;
+  background-color: inherit;
+  border: var(--accent-color);
+  font-size: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  letter-spacing: inherit;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--hover-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--accent-color);
+  pointer-events: none;
+}
+
+.header__title {
+  padding-block-start: 1vi;
+  padding-block-end: 1vi;
+  justify-self: start;
+  text-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+.title {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 83%;
+  color: var(--title-color);
+}
+
+.header__subtitle {
+  padding-block-start: 13.5vi;
+  justify-self: end;
+}
+
+.title-decor {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--header-title-color);
+  background-color: var(--bg-header-title);
+}
+
+.title-decor p {
+  margin: 0;
+}
+
+.info__why {
+  margin: 2.7%;
+  margin-block-start: 13vi;
+}
+
+.info__why-wrapper {
+  margin: 0;
+  display: grid;
+  flex-grow: 1;
+  gap: 20px;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "why-title"
+    "text--1"
+    "text--2";
+}
+
+.section-title {
+  padding-inline-end: 10%;
+  font-size: 18px;
+  color: var(--accent-color);
+}
+
+.info__why-title {
+  grid-area: why-title;
+}
+
+.text-paragraph {
+  margin: 0;
+  padding-block-start: 10px;
+  font-size: 18px;
+  color: var (--text-color);
+  line-height: 1.3;
+}
+
+.info__why-text--1 {
+  grid-area: text--1;
+}
+
+.info__why-text--2 {
+  grid-area: text--2;
+}
+
+.text-link {
+  color: inherit;
+  text-decoration: none;
+  text-shadow: 2px 1px 0 var(--bg-header-title);
+}
+
+.text-link:hover {
+  border-bottom: 1px solid var(--text-color);
+}
+
+.text-link:focus {
+  outline: 1px solid var(--text-color);
+}
+
+.info__what {
+  margin: 2.7%;
+  margin-block-start: 13.5%;
+}
+
+.info__what-wrapper {
+  display: grid;
+  justify-content: space-between;
+  grid-template-rows: repeat(4 auto);
+  gap: 20px;
+  grid-template-areas:
+    "what-title"
+    "what-text--1"
+    "what-text--2"
+    "what-text--3";
+}
+
+.info__what-title {
+  grid-area: what-title;
+  flex-grow: 1;
+}
+
+.info__what-text--1 {
+  grid-area: what-text--1;
+}
+
+.info__what-text--2 {
+  grid-area: what-text--2;
+}
+
+.info__what-text--3 {
+  grid-area: what-text--3;
+}
+
+.info__how {
+  margin: 2.7%;
+  margin-block-start: 13.1vi;
+}
+
+.info__how-wrapper {
+  display: grid;
+  gap: 20px;
+  flex-grow: 1;
+  justify-content: space-between;
+  grid-template-rows: repeat(7 auto);
+  grid-template-areas:
+    "how-title"
+    "how-advice"
+    "how-text--1"
+    "how-text--2"
+    "how-text--3"
+    "how-text--4"
+    "how-text--5";
+}
+
+.info__how-title {
+  padding: 1px;
+  grid-area: how-title;
+}
+
+.info__how-advice {
+  grid-area: how-advice;
+}
+
+.info__how-text--1 {
+  grid-area: how-text--1;
+}
+
+.info__how-text--2 {
+  grid-area: how-text--2;
+}
+
+.info__how-text--3 {
+  grid-area: how-text--3;
+}
+
+.info__how-text--4 {
+  grid-area: how-text--4;
+}
+
+.info__how-text--5 {
+  grid-area: how-text--5;
+}
+
+.info__how-text-title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--header-title-color);
+  background-color: var(--bg-header-title);
+}
+
+.info__how-text-paragraph {
+  padding-inline-end: 2%;
+}
+
+.card {
+  margin: 2.7%;
+  margin-block-start: 13%;
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-rows: repeat(5 auto);
+  gap: 10px;
+  justify-content: space-between;
+  grid-template-areas:
+    "card"
+    "card-1"
+    "card-2"
+    "card-3"
+    "card-4"
+    "card-5";
+}
+
+.card__heading {
+  grid-area: card;
+  margin: 2px 0 1px;
+}
+
+.card__image {
+  margin: 0;
+  inline-size: 100%;
+  block-size: calc(100%+2vi);
+}
+.card__image-photo {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+.card-1 {
+  grid-area: card-1;
+}
+
+.card-2 {
+  grid-area: card-2;
+}
+
+.card-3 {
+  grid-area: card-3;
+}
+
+.card-4 {
+  grid-area: card-4;
+}
+.card-5 {
+  grid-area: card-5;
+}
+
+.footer {
+  margin: 2.7%;
+  margin-block-start: 13.5%;
+  display: grid;
+  place-content: center;
+}
+
+.footer__title {
+  padding-block: 73.5vi;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+@media (768px <= width) {
+  .header__theme-menu {
+    padding-block: 22vi;
+  }
+
+  .header__title {
+    margin-inline-start: -2.5vi;
+  }
+
+  .title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__subtitle {
+    max-width: 50%;
+    padding-block-start: 20vi;
+  }
+
+  .info__why {
+    margin-block-start: 10.1vi;
+  }
+
+  .info__why-wrapper {
+    grid-template-columns: 30.7vi auto;
+    grid-template-rows: repeat(2, auto);
+
+    grid-template-areas:
+      "why-title text--1"
+      "why-title text--2";
+  }
+
+  .info__what {
+    margin-block-start: 10.5%;
+  }
+
+  .info__what-wrapper {
+    display: grid;
+    justify-content: space-between;
+  }
+
+  .info__what-title {
+    padding-inline-end: 70%;
+  }
+
+  .info__how {
+    margin-block-start: 10.6%;
+  }
+
+  .info__how-wrapper {
+    grid-template-columns: 30.5vi auto;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+      "how-title how-advice"
+      "how-title how-text--1"
+      "how-title how-text--2"
+      "how-title how-text--3"
+      "how-title how-text--4"
+      "how-title how-text--5";
+  }
+
+  .info__how-text-paragraph {
+    padding-inline-end: 0;
+  }
+
+  .card {
+    margin-block-start: 10.5%;
+  }
+
+  .card-wrapper {
+    grid-template-columns: repeat(3 fr);
+    grid-template-rows: repeat(3 fr);
+    gap: 20px;
+    justify-content: space-between;
+    grid-template-areas:
+      "card card card"
+      "card-1 card-1 card-2"
+      "card-3 card-4 card-2"
+      "card-3 card-5 card-5";
+  }
+
+  .footer {
+    margin-block-start: 10.5vi;
+  }
+
+  .footer__title {
+    padding-block: 57.5vi;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    margin: 2%;
+  }
+
+  .header__theme-menu {
+    justify-self: center;
+    align-self: flex-start;
+  }
+
+  .header__theme-menu {
+    padding-block-start: 0;
+    padding-block-end: 26vi;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .header__title {
+    padding-inline-start: 0.5%;
+    padding-block-end: 0.5vi;
+  }
+
+  .header__subtitle {
+    padding-block-start: 10.5vi;
+  }
+
+  .info__why {
+    margin: 2%;
+    margin-block-start: 8vi;
+  }
+
+  .info__what {
+    margin: 2%;
+    margin-block-start: 7.6%;
+  }
+
+  .info__what-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, min-content);
+    grid-template-areas:
+      "what-title what-title what-title"
+      "what-text--1 what-text--2 what-text--3";
+  }
+
+  .info__how {
+    margin: 2%;
+    margin-block-start: 8vi;
+  }
+
+  .card {
+    margin: 2%;
+    margin-block-start: 7.5%;
+  }
+
+  .footer {
+    margin: 2%;
+    margin-block-start: 8vi;
+  }
+
+  .footer__title {
+    padding-block: 29vi;
+  }
 }
