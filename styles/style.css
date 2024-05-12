@@ -1,9 +1,9 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  font-family: var(--main-font, sans-serif);
+  font-family: var(--main-font, monospace);
   color: var(--text-color);
-  background-image: url(../images/cover-image-dark.png);
+  background-image: var(--bg-image);
   background-color: var(--bg-color);
   background-size: cover;
   background-repeat: no-repeat;
@@ -43,8 +43,9 @@
 .header__decor-dark-theme {
   justify-self: end;
   position: absolute;
-  margin-inline-end: 29px;
+  right: 28px;
   font-size: 18px;
+  text-transform: uppercase;
   color: var(--accent-color);
 }
 
@@ -56,8 +57,8 @@
   border-radius: 50%;
   background-color: var(--accent-color);
   box-shadow: 0 0 4px 2px var(--accent-color);
-  margin-block-start: 7px;
-  inset-inline-end: -20px;
+  top: 7px;
+  left: 42px;
 }
 
 .header__theme-menu {
@@ -85,7 +86,7 @@
   padding-inline: 13px;
   color: inherit;
   background-color: inherit;
-  border: var(--accent-color);
+  border: none;
   font-size: inherit;
   text-transform: inherit;
   cursor: pointer;
@@ -101,7 +102,7 @@
 }
 
 .header__theme-menu-button:focus-visible {
-  border-block-end: 1px solid var(--accent-color);
+  outline: 1px solid var(--accent-color);
 }
 
 .header__theme-menu-button_active {
@@ -110,7 +111,7 @@
 }
 
 .header__title {
-  padding-block-start: 1vi;
+  padding-block-start: 1.5vi;
   padding-block-end: 1vi;
   justify-self: start;
   text-shadow: 4px 4px 0 var(--shadow-color);
@@ -121,43 +122,37 @@
   line-height: 83%;
   color: var(--title-color);
 }
-
 .header__subtitle {
-  padding-block-start: 13.5vi;
-  justify-self: end;
+  justify-self: flex-end;
+  padding-block-start: 13.3vi;
 }
 
 .title-decor {
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--header-title-color);
   background-color: var(--bg-header-title);
 }
 
-.title-decor p {
+.header__subtitle-text {
   margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--header-title-color);
 }
 
 .info__why {
-  margin: 2.7%;
-  margin-block-start: 13vi;
-}
-
-.info__why-wrapper {
-  margin: 0;
+  margin-inline: 2.7%;
+  margin-block-start: 13.2vi;
   display: grid;
-  flex-grow: 1;
   gap: 20px;
   grid-template-rows: repeat(3, auto);
   grid-template-areas:
     "why-title"
-    "text--1"
-    "text--2";
+    "multitasking"
+    "dopamine";
 }
 
 .section-title {
-  padding-inline-end: 10%;
   font-size: 18px;
+  font-weight: 700;
   color: var(--accent-color);
 }
 
@@ -165,26 +160,37 @@
   grid-area: why-title;
 }
 
+.info__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.info__title {
+  font-weight: 700;
+  font-size: 18px;
+}
+
 .text-paragraph {
   margin: 0;
-  padding-block-start: 10px;
   font-size: 18px;
   color: var (--text-color);
   line-height: 1.3;
 }
 
-.info__why-text--1 {
-  grid-area: text--1;
+.info__why-multitasking {
+  grid-area: multitasking;
 }
 
-.info__why-text--2 {
-  grid-area: text--2;
+.info__why-dopamine {
+  grid-area: dopamine;
 }
 
 .text-link {
   color: inherit;
   text-decoration: none;
-  text-shadow: 2px 1px 0 var(--bg-header-title);
+  text-shadow: 2px 2px 0 var(--bg-header-title);
 }
 
 .text-link:hover {
@@ -192,18 +198,22 @@
 }
 
 .text-link:focus {
+  outline: none;
+}
+.text-link:focus-visible {
   outline: 1px solid var(--text-color);
 }
 
 .info__what {
-  margin: 2.7%;
+  margin-inline: 2.7%;
   margin-block-start: 13.5%;
 }
 
 .info__what-wrapper {
   display: grid;
   justify-content: space-between;
-  grid-template-rows: repeat(4 auto);
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(4, auto);
   gap: 20px;
   grid-template-areas:
     "what-title"
@@ -214,24 +224,23 @@
 
 .info__what-title {
   grid-area: what-title;
-  flex-grow: 1;
 }
 
-.info__what-text--1 {
+.info__what-multitasking {
   grid-area: what-text--1;
 }
 
-.info__what-text--2 {
+.info__what-eat {
   grid-area: what-text--2;
 }
 
-.info__what-text--3 {
+.info__what-gadget {
   grid-area: what-text--3;
 }
 
 .info__how {
-  margin: 2.7%;
-  margin-block-start: 13.1vi;
+  margin-inline: 2.7%;
+  margin-block-start: 13.5%;
 }
 
 .info__how-wrapper {
@@ -251,7 +260,6 @@
 }
 
 .info__how-title {
-  padding: 1px;
   grid-area: how-title;
 }
 
@@ -259,27 +267,27 @@
   grid-area: how-advice;
 }
 
-.info__how-text--1 {
+.info__how-imagine {
   grid-area: how-text--1;
 }
 
-.info__how-text--2 {
+.info__how-music {
   grid-area: how-text--2;
 }
 
-.info__how-text--3 {
+.info__how-walk {
   grid-area: how-text--3;
 }
 
-.info__how-text--4 {
+.info__how-eat {
   grid-area: how-text--4;
 }
 
-.info__how-text--5 {
+.info__how-read {
   grid-area: how-text--5;
 }
 
-.info__how-text-title {
+.info__text-title {
   margin: 0;
   font-weight: 400;
   font-size: 18px;
@@ -292,13 +300,10 @@
 }
 
 .card {
-  margin: 2.7%;
+  margin-inline: 2.7%;
   margin-block-start: 13%;
-}
-
-.card-wrapper {
   display: grid;
-  grid-template-rows: repeat(5 auto);
+  grid-template-rows: repeat(6 auto);
   gap: 10px;
   justify-content: space-between;
   grid-template-areas:
@@ -311,37 +316,34 @@
 }
 
 .card__heading {
-  grid-area: card;
   margin: 2px 0 1px;
+  grid-area: card;
 }
 
 .card__image {
-  margin: 0;
-  inline-size: 100%;
-  block-size: calc(100%+2vi);
-}
-.card__image-photo {
   display: block;
+  margin: 0;
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
 }
-.card-1 {
+
+.card-sunset {
   grid-area: card-1;
 }
 
-.card-2 {
+.card-icecream {
   grid-area: card-2;
 }
 
-.card-3 {
+.card-tape {
   grid-area: card-3;
 }
 
-.card-4 {
+.card-books {
   grid-area: card-4;
 }
-.card-5 {
+.card-street {
   grid-area: card-5;
 }
 
@@ -363,7 +365,8 @@
   }
 
   .header__title {
-    margin-inline-start: -2.5vi;
+    margin-inline-start: -2.7vi;
+    margin-block-start: -0.3vi;
   }
 
   .title {
@@ -376,20 +379,16 @@
   }
 
   .info__why {
-    margin-block-start: 10.1vi;
-  }
-
-  .info__why-wrapper {
-    grid-template-columns: 30.7vi auto;
+    margin-block-start: 10.4vi;
+    grid-template-columns: 30.6vi auto;
     grid-template-rows: repeat(2, auto);
-
     grid-template-areas:
-      "why-title text--1"
-      "why-title text--2";
+      "why-title multitasking"
+      "why-title dopamine";
   }
 
   .info__what {
-    margin-block-start: 10.5%;
+    margin-block-start: 10.4vi;
   }
 
   .info__what-wrapper {
@@ -402,12 +401,12 @@
   }
 
   .info__how {
-    margin-block-start: 10.6%;
+    margin-block-start: 10.5vi;
   }
 
   .info__how-wrapper {
-    grid-template-columns: 30.5vi auto;
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 30.6vi auto;
+    grid-template-rows: repeat(6, auto);
     grid-template-areas:
       "how-title how-advice"
       "how-title how-text--1"
@@ -422,12 +421,12 @@
   }
 
   .card {
-    margin-block-start: 10.5%;
+    margin-block-start: 10.3vi;
   }
 
-  .card-wrapper {
-    grid-template-columns: repeat(3 fr);
-    grid-template-rows: repeat(3 fr);
+  .card {
+    grid-template-columns: repeat(3, fr);
+    grid-template-rows: repeat(3, fr);
     gap: 20px;
     justify-content: space-between;
     grid-template-areas:
@@ -438,7 +437,7 @@
   }
 
   .footer {
-    margin-block-start: 10.5vi;
+    margin-block-start: 10.7vi;
   }
 
   .footer__title {
@@ -448,17 +447,15 @@
 
 @media (min-width: 1024px) {
   .header {
-    margin: 2%;
+    margin-inline: 2%;
+    margin-block: 1.9%;
   }
 
   .header__theme-menu {
     justify-self: center;
     align-self: flex-start;
-  }
-
-  .header__theme-menu {
     padding-block-start: 0;
-    padding-block-end: 26vi;
+    padding-block-end: 26.8vi;
   }
 
   .header__theme-menu-list {
@@ -466,22 +463,23 @@
   }
 
   .header__title {
-    padding-inline-start: 0.5%;
-    padding-block-end: 0.5vi;
+    padding-inline-start: 0.7%;
+    padding-block-start: 0.3vi;
+    padding-block-end: 0;
   }
 
   .header__subtitle {
-    padding-block-start: 10.5vi;
+    padding-block-start: 11.1vi;
   }
 
   .info__why {
-    margin: 2%;
-    margin-block-start: 8vi;
+    margin-inline: 2%;
+    margin-block-start: 7.7vi;
   }
 
   .info__what {
     margin: 2%;
-    margin-block-start: 7.6%;
+    margin-block-start: 7.9%;
   }
 
   .info__what-wrapper {
@@ -493,18 +491,18 @@
   }
 
   .info__how {
-    margin: 2%;
-    margin-block-start: 8vi;
+    margin-inline: 2%;
+    margin-block-start: 7.8vi;
   }
 
   .card {
-    margin: 2%;
-    margin-block-start: 7.5%;
+    margin-inline: 2%;
+    margin-block-start: 7.7vi;
   }
 
   .footer {
-    margin: 2%;
-    margin-block-start: 8vi;
+    margin-inline: 2%;
+    margin-block-start: 8.1vi;
   }
 
   .footer__title {

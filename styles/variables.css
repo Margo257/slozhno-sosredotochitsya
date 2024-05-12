@@ -1,5 +1,5 @@
 :root{
-  --main-font: 'IBM Plex mono';
+  --main-font:'IBM Plex mono';
   --text-color:#F1B2CE;
   --accent-color: #FF0070;
   --hover-color:rgb(255, 0, 112, .4);
@@ -8,4 +8,11 @@
   --bg-color:#000028;
   --bg-header-title:#FF0070;
   --shadow-color: #ff0070;
+  --bg-image: url(../images/cover-image-dark.png);
+}
+
+
+@media (1024px > width){
+  .page.theme_light { --shadow-color: #FF8DCB;
+  }
 }

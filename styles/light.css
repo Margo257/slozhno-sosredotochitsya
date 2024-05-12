@@ -8,35 +8,10 @@
   --bg-color:
   #FFF1F7;
   --bg-header-title:#FF8DCB;
-  --shadow-color: #FF8DCB;
+  --bg-image: url(../images/cover-image-light.png);
 
-  color: var(--text-color, #353430);
-  background-image: url(../images/cover-image-light.png);
-  background-color: var(--bg-color, #FFC2E6);
- 
   .header__decor-dark-theme {
   display: none
-  }
-
-  .header__decor-dark-theme {
-    color: var(--accent-color, #353430);
-  }
-
-  .header__title {
-    text-shadow: 4px 4px 0 var( --shadow-color, #FF8DCB);
-  }
-
-  .title{
-    color: var(--title-color, #FFC2E6);
-  }
-
-  .title-decor {
-    color: var(--header-title-color, #353430);
-    background-color: var(--bg-header-title, #FF8DCB);
-  }
-
-  @media (1024px <= width){
-    --shadow-color: #ff0070;
   }
 }
 
