@@ -422,9 +422,6 @@
 
   .card {
     margin-block-start: 10.3vi;
-  }
-
-  .card {
     grid-template-columns: repeat(3, fr);
     grid-template-rows: repeat(3, fr);
     gap: 20px;

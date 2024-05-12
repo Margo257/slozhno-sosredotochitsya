@@ -1,4 +1,4 @@
-:root{
+:root {
   --main-font:'IBM Plex mono';
   --text-color:#F1B2CE;
   --accent-color: #FF0070;
@@ -12,7 +12,8 @@
 }
 
 
-@media (1024px > width){
-  .page.theme_light { --shadow-color: #FF8DCB;
+@media (1024px > width) {
+  .page.theme_light { 
+    --shadow-color: #FF8DCB;
   }
 }
